@@ -1,9 +1,35 @@
-@(message: String)
+@(comments: List[Comment], commentForm: Form[Comment])
 
-Hej hej!
+@import helper._
 
-@main("Welcome to Play 2.0") {
+@main("Software Passions Play Greetings") {
 
-@play20.welcome(message, style = "Java")
+<h1>Software Passion 2012</h1>
+
+<img src="https://lh5.googleusercontent.com/-6aFlIzoBqqQ/TsvorIm_UTI/AAAAAAAADVg/_ks3-dOjJNU/s400/DSC_1159.JPG" border="5" height="200">
+
+<h2>Say hello to the crowd: </h2>
+
+@form(routes.Application.addComment()) {
+
+@inputText(commentForm("greeting" ))
+@inputText(commentForm("author" ))
+
+
+<input type="submit" value="Submit">
+
+
+<ul>
+    @for(comment <- comments) {
+    <li>
+        @comment.greeting säger
+        @comment.author
+    </li>
+    }
+</ul>
+
+
+
+}
 
 }
