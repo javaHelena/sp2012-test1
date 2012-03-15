@@ -10,15 +10,6 @@
 
 <h2>Say hello to the crowd: </h2>
 
-@form(routes.Application.addComment()) {
-
-@inputText(commentForm("Greeting" ))
-@inputText(commentForm("from" ))
-
-
-<input type="submit" value="Submit">
-
-
 <ul>
     @for(comment <- comments) {
     <li>
@@ -28,8 +19,11 @@
     }
 </ul>
 
+    @form(routes.Application.addComment()) {
+        @inputText(commentForm("greeting" ))
+        @inputText(commentForm("author" ))
+        <input type="submit" value="Submit">
 
-
-}
+    }
 
 }
